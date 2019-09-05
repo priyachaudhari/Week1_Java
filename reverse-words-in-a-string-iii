@@ -1,0 +1,31 @@
+class Solution {
+    public String reverseWords(String s) {
+        
+        String[] words = s.split(" ");
+        String reverse= "";
+        
+        for(int l= 0; l < words.length; l++){
+            
+            char[] letters = words[l].toCharArray();              
+                int j = 0, k = letters.length - 1; 
+                
+                while(j < k){
+                    char temp = letters[j];
+                    letters[j] = letters[k];
+                    letters[k] = temp;
+                    j++;
+                    k--;
+                }
+                
+            String lString = new String(letters);
+            
+            if(l < words.length - 1){
+            reverse = reverse + lString + " ";
+            }else{
+               reverse = reverse + lString; 
+            }
+        }
+        
+        return reverse;
+    }
+}
