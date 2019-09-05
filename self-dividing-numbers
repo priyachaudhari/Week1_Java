@@ -1,0 +1,31 @@
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        
+        List<Integer> numbers = new ArrayList();
+        int j=0;
+        int flag;
+        
+        for(int i =left; i <= right; i++){           
+            int k = i;
+            flag = 0;
+            
+            while(k>0){
+                j = k % 10;
+                k = k / 10;
+                
+                if(j == 0){
+                    flag= 1;
+                    continue;
+                }             
+                if(i % j != 0){
+                    flag = 1; 
+                }      
+            }
+            
+            if(flag == 0){
+               numbers.add(i); 
+            }            
+        }           
+        return numbers;
+    }
+}
